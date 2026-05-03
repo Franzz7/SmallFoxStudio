@@ -447,7 +447,7 @@
   // ── FOX GROUP ──
   const foxGroup = new THREE.Group();
   foxGroup.position.set(0, 0, 0);
-  foxGroup.rotation.y = Math.PI / 6; // 30°
+  foxGroup.rotation.y = -Math.PI / 6; // -30°
   scene.add(foxGroup);
 
   // ── LOAD GLB MODEL ──
@@ -539,7 +539,7 @@
     if (mixer) mixer.update(dt);
 
     // Fox faces cursor (smooth)
-    foxGroup.rotation.y += ((Math.PI / 6 + mx * 0.18) - foxGroup.rotation.y) * 0.06;
+    foxGroup.rotation.y += ((-Math.PI / 6 + mx * 0.18) - foxGroup.rotation.y) * 0.06;
     foxGroup.rotation.x += ((my * 0.06) - foxGroup.rotation.x) * 0.06;
 
     // Drift triangles
