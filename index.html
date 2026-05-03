@@ -475,52 +475,74 @@
     (err) => console.error('GLB load error:', err)
   );
 
-  // ── FLOATING TRIANGLE FRAGMENTS ──
-  const triGeo = new THREE.TetrahedronGeometry(0.038);
-  const triMeshes = [];
-  for (let i = 0; i < 45; i++) {
-    const triMat = new THREE.MeshBasicMaterial({
-      color: Math.random() > 0.5 ? 0xF2A261 : 0xE85D26,
-      transparent: true,
-      opacity: 0.22 + Math.random() * 0.28,
-    });
-    const tri = new THREE.Mesh(triGeo, triMat);
+  // ── SOFT BOKEH PARTICLES ──
+  const dotCanvas = document.createElement('canvas');
+  dotCanvas.width = 64; dotCanvas.height = 64;
+  const dotCtx = dotCanvas.getContext('2d');
+  const grad = dotCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0,   'rgba(255,255,255,1)');
+  grad.addColorStop(0.4, 'rgba(255,255,255,0.6)');
+  grad.addColorStop(1,   'rgba(255,255,255,0)');
+  dotCtx.fillStyle = grad;
+  dotCtx.fillRect(0, 0, 64, 64);
+  const dotTex = new THREE.CanvasTexture(dotCanvas);
+
+  const DOT_COUNT = 55;
+  const dotPositions = new Float32Array(DOT_COUNT * 3);
+  const dotColors    = new Float32Array(DOT_COUNT * 3);
+  const palette = [
+    [0.91, 0.36, 0.15],
+    [0.95, 0.64, 0.38],
+    [0.96, 0.93, 0.88],
+  ];
+  const dotData = [];
+  for (let i = 0; i < DOT_COUNT; i++) {
     const theta = Math.random() * Math.PI * 2;
     const phi   = Math.acos(2 * Math.random() - 1);
-    const r     = 2.0 + Math.random() * 3.0;
-    tri.position.set(
-      r * Math.sin(phi) * Math.cos(theta),
-      r * Math.sin(phi) * Math.sin(theta),
-      r * Math.cos(phi)
-    );
-    tri.rotation.set(
-      Math.random() * Math.PI * 2,
-      Math.random() * Math.PI * 2,
-      Math.random() * Math.PI * 2
-    );
-    tri.userData.driftY   = 0.003 + Math.random() * 0.004;
-    tri.userData.rotSpeed = (Math.random() - 0.5) * 0.04;
-    tri.userData.rotAxis  = new THREE.Vector3(Math.random(), Math.random(), Math.random()).normalize();
-    tri.userData.wrapY    = tri.position.y;
-    tri.userData.range    = 4.0;
-    scene.add(tri);
-    triMeshes.push(tri);
+    const r     = 1.8 + Math.random() * 3.2;
+    const x = r * Math.sin(phi) * Math.cos(theta);
+    const y = r * Math.sin(phi) * Math.sin(theta);
+    const z = r * Math.cos(phi);
+    dotPositions[i*3]   = x;
+    dotPositions[i*3+1] = y;
+    dotPositions[i*3+2] = z;
+    const c = palette[Math.floor(Math.random() * palette.length)];
+    dotColors[i*3]   = c[0];
+    dotColors[i*3+1] = c[1];
+    dotColors[i*3+2] = c[2];
+    dotData.push({ x, y, z, drift: 0.0006 + Math.random() * 0.001, originY: y, range: 3.0 + Math.random() });
   }
+  const dotGeo = new THREE.BufferGeometry();
+  dotGeo.setAttribute('position', new THREE.BufferAttribute(dotPositions, 3));
+  dotGeo.setAttribute('color',    new THREE.BufferAttribute(dotColors,    3));
+  const dotMat = new THREE.PointsMaterial({
+    map: dotTex, size: 0.22, vertexColors: true,
+    transparent: true, opacity: 0.28, depthWrite: false,
+    blending: THREE.AdditiveBlending, sizeAttenuation: true,
+  });
+  const dots = new THREE.Points(dotGeo, dotMat);
+  scene.add(dots);
 
-  // ── POLYGON RINGS ──
-  function makePolyRing(r, segments, rotX, rotZ, hex, opacity) {
+  // ── SMOOTH RINGS ──
+  function makeSmoothRing(r, rotX, rotZ, hex, opacity) {
     const m = new THREE.Mesh(
-      new THREE.TorusGeometry(r, 0.005, 3, segments),
+      new THREE.TorusGeometry(r, 0.004, 2, 80),
       new THREE.MeshBasicMaterial({ color: hex, transparent: true, opacity })
     );
-    m.rotation.x = rotX;
-    m.rotation.z = rotZ;
-    scene.add(m);
-    return m;
+    m.rotation.x = rotX; m.rotation.z = rotZ;
+    scene.add(m); return m;
   }
-  const ring1 = makePolyRing(2.9, 7, 0.5,  0.2, 0xE85D26, 0.14);
-  const ring2 = makePolyRing(2.2, 5, 1.1,  0.8, 0xF2A261, 0.09);
-  const ring3 = makePolyRing(3.7, 9, 0.3,  1.4, 0xE85D26, 0.06);
+  const ring1 = makeSmoothRing(2.8, 0.4, 0.1, 0xE85D26, 0.07);
+  const ring2 = makeSmoothRing(3.5, 1.1, 0.5, 0xF2A261, 0.04);
+
+  // ── HEXAGON OUTLINE (echoes hero hex shape) ──
+  const hexGeo   = new THREE.CylinderGeometry(2.4, 2.4, 0, 6, 1, true);
+  const hexEdges = new THREE.EdgesGeometry(hexGeo);
+  const hexLine  = new THREE.LineSegments(hexEdges,
+    new THREE.LineBasicMaterial({ color: 0xE85D26, transparent: true, opacity: 0.07 })
+  );
+  hexLine.rotation.x = Math.PI / 2;
+  scene.add(hexLine);
 
   // ── MOUSE ──
   let mx = 0, my = 0;
@@ -547,19 +569,19 @@
     foxGroup.rotation.y += ((-Math.PI / 6 + mx * 0.18) - foxGroup.rotation.y) * 0.06;
     foxGroup.rotation.x += ((my * 0.06) - foxGroup.rotation.x) * 0.06;
 
-    // Drift triangles
-    triMeshes.forEach(tri => {
-      tri.position.y += tri.userData.driftY;
-      tri.rotateOnAxis(tri.userData.rotAxis, tri.userData.rotSpeed);
-      if (tri.position.y > tri.userData.wrapY + tri.userData.range) {
-        tri.position.y = tri.userData.wrapY - tri.userData.range;
-      }
+    // Drift bokeh dots upward
+    const posAttr = dotGeo.attributes.position.array;
+    dotData.forEach((d, i) => {
+      d.y += d.drift;
+      if (d.y > d.originY + d.range) d.y = d.originY - d.range;
+      posAttr[i * 3 + 1] = d.y;
     });
+    dotGeo.attributes.position.needsUpdate = true;
 
-    // Spin polygon rings
-    ring1.rotation.z += 0.003;
-    ring2.rotation.x += 0.002;
-    ring3.rotation.y += 0.001;
+    // Slow ring + hex rotation
+    ring1.rotation.z += 0.0008;
+    ring2.rotation.x += 0.0005;
+    hexLine.rotation.z += 0.0003;
 
     renderer.render(scene, camera);
   }
