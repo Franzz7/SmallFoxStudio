@@ -460,7 +460,7 @@
       const model = gltf.scene;
       foxGroup.add(model);
       model.scale.setScalar(0.56);
-      model.position.set(0, 0, 0);
+      model.position.set(0, -1.2, 0);
       if (gltf.animations && gltf.animations.length > 0) {
         mixer = new THREE.AnimationMixer(model);
         gltf.animations.forEach(clip => mixer.clipAction(clip).play());
