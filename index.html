@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Small Fox Studio — Web Design for Small Businesses &amp; Startups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">
+      <img src="Images/Logo/Black_SmallFoxStudioLogo+Text.svg" alt="Small Fox Studio" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- Three.js fox canvas -->
+    <canvas id="fox-canvas"></canvas>
+
+    <div class="hero-wash"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        Web Design Studio
+        <span class="hero-eyebrow-line"></span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="hero-line-wrap"><span class="hero-line hero-line-1">Websites worth</span></span>
+        <span class="hero-line-wrap"><span class="hero-line hero-line-2"><em>talking about.</em></span></span>
+      </h1>
+
+      <p class="hero-sub">
+        Beautiful websites for small businesses and startups. Fast to launch, built to convert.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Start a project
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a href="#portfolio" class="btn-secondary">
+          See our work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">40<em>+</em></div>
+          <div class="hero-stat-label">Sites launched</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">14<em>d</em></div>
+          <div class="hero-stat-label">Avg. delivery</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100<em>%</em></div>
+          <div class="hero-stat-label">Client satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+
+    <div class="hero-ticker">
+      <div class="hero-ticker-track">
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Website Design</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Landing Pages</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Brand Identity</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>SEO Optimised</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Fast Delivery</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Conversion Ready</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Small Business Specialists</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Website Design</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Landing Pages</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Brand Identity</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>SEO Optimised</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Fast Delivery</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Conversion Ready</span>
+        <span class="hero-ticker-item"><span class="hero-ticker-dot"></span>Small Business Specialists</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What we do</span>
+        <h2 class="section-title">Everything your website <em>needs</em></h2>
+        <p class="section-desc">From a quick landing page to a fully custom site — we handle design, development, and launch.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-number">01</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <rect x="4" y="8" width="32" height="24" rx="3" stroke="currentColor" stroke-width="1.5"></rect>
+            <path d="M4 14h32" stroke="currentColor" stroke-width="1.5"></path>
+            <circle cx="9" cy="11" r="1.5" fill="currentColor"></circle>
+            <circle cx="14" cy="11" r="1.5" fill="currentColor"></circle>
+            <rect x="10" y="20" width="20" height="2" rx="1" fill="currentColor" opacity="0.4"></rect>
+            <rect x="10" y="25" width="12" height="2" rx="1" fill="currentColor" opacity="0.25"></rect>
+          </svg>
+          <div class="service-name">Website Design</div>
+          <div class="service-desc">Custom-designed sites that feel uniquely you — not templates, not cookie-cutter. Built to impress from the first pixel.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-number">02</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <polyline points="5,28 14,18 20,24 27,14 35,20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <circle cx="14" cy="18" r="2" fill="currentColor"></circle>
+            <circle cx="20" cy="24" r="2" fill="currentColor"></circle>
+            <circle cx="27" cy="14" r="2" fill="currentColor"></circle>
+          </svg>
+          <div class="service-name">Landing Pages</div>
+          <div class="service-desc">High-converting single pages for launches, campaigns, and products. Fast to ship, built to capture leads.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-number">03</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" stroke-width="1.5"></rect>
+            <rect x="13" y="12" width="14" height="2" rx="1" fill="currentColor" opacity="0.4"></rect>
+            <rect x="13" y="17" width="10" height="2" rx="1" fill="currentColor" opacity="0.3"></rect>
+            <rect x="13" y="22" width="12" height="2" rx="1" fill="currentColor" opacity="0.3"></rect>
+            <rect x="13" y="27" width="6" height="2" rx="1" fill="currentColor" opacity="0.2"></rect>
+          </svg>
+          <div class="service-name">Content &amp; Copy</div>
+          <div class="service-desc">Words that sell. We write clear, friendly copy that speaks to your customers and keeps them reading.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-number">04</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.5"></circle>
+            <path d="M20 6C20 6 14 12 14 20s6 14 6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M20 6C20 6 26 12 26 20s-6 14-6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M6 20h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          </svg>
+          <div class="service-name">SEO Setup</div>
+          <div class="service-desc">Every site ships search-ready. Proper meta tags, fast load times, and a solid foundation for Google to love you.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-number">05</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <rect x="6" y="10" width="18" height="22" rx="3" stroke="currentColor" stroke-width="1.5"></rect>
+            <rect x="16" y="8" width="18" height="22" rx="3" stroke="currentColor" stroke-width="1.5" fill="var(--card-bg)"></rect>
+            <rect x="20" y="14" width="10" height="2" rx="1" fill="currentColor" opacity="0.4"></rect>
+            <rect x="20" y="19" width="7" height="2" rx="1" fill="currentColor" opacity="0.3"></rect>
+          </svg>
+          <div class="service-name">Brand Identity</div>
+          <div class="service-desc">Logo, color palette, and the visual building blocks that make your business look polished and consistent everywhere.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-number">06</div>
+          <svg class="service-icon" viewBox="0 0 40 40" fill="none">
+            <path d="M20 8v24M8 20h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+            <circle cx="20" cy="20" r="2" fill="currentColor"></circle>
+          </svg>
+          <div class="service-name">Ongoing Support</div>
+          <div class="service-desc">Need updates? We've got you. Monthly care plans keep your site fresh, secure, and working perfectly.</div>
+          <div class="service-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14L14 4M14 4H7M14 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our work</span>
+        <h2 class="section-title">Recent <em>projects</em></h2>
+        <p class="section-desc">A few things we've built lately — every project starts with a conversation.</p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal" style="background: #1A2332;">
+          <div class="portfolio-card-bg">
+            <div style="width:85%; background:#243045; border-radius:8px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+              <div style="background:#1c2840; padding:10px 16px; display:flex; align-items:center; gap:6px;">
+                <div style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></div>
+                <div style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></div>
+                <div style="width:9px;height:9px;border-radius:50%;background:#28c840;"></div>
+                <div style="flex:1; margin-left:12px; background:#162030; border-radius:4px; height:22px; display:flex; align-items:center; padding:0 10px;">
+                  <span style="font-size:10px; color:rgba(255,255,255,0.35); font-family:var(--font-body);">brewhaven.co</span>
+                </div>
+              </div>
+              <div style="background:#243045; padding:20px 16px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+                  <div style="font-size:12px; font-weight:700; color:white; letter-spacing:0.05em;">BREWHAVEN</div>
+                  <div style="display:flex; gap:14px;">
+                    <div style="width:28px;height:5px;border-radius:3px;background:rgba(255,255,255,0.2);"></div>
+                    <div style="width:22px;height:5px;border-radius:3px;background:rgba(255,255,255,0.2);"></div>
+                    <div style="width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,0.2);"></div>
+                  </div>
+                </div>
+                <div style="background:linear-gradient(135deg,#C8773A,#7A3A1A);border-radius:6px;padding:24px 20px;margin-bottom:12px;">
+                  <div style="width:60%;height:10px;border-radius:4px;background:rgba(255,255,255,0.7);margin-bottom:8px;"></div>
+                  <div style="width:80%;height:10px;border-radius:4px;background:rgba(255,255,255,0.9);margin-bottom:12px;"></div>
+                  <div style="width:40%;height:6px;border-radius:3px;background:rgba(255,255,255,0.5);margin-bottom:18px;"></div>
+                  <div style="width:80px;height:26px;border-radius:4px;background:white;"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+                  <div style="background:#1c2840;border-radius:5px;height:48px;"></div>
+                  <div style="background:#1c2840;border-radius:5px;height:48px;"></div>
+                  <div style="background:#1c2840;border-radius:5px;height:48px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-overlay"></div>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-tag">Café &amp; Restaurant</span>
+            <div class="portfolio-title">Brewhaven Coffee</div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-1" style="background:#F0EBE3;">
+          <div class="portfolio-card-bg">
+            <div style="width:82%; text-align:left; padding:24px; background:white; border-radius:8px; box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+              <div style="font-family:var(--font-display);font-size:18px;font-weight:500;color:#2D2D2D;margin-bottom:8px;">Petal &amp; Bloom</div>
+              <div style="width:70%;height:4px;border-radius:2px;background:#E8D5C4;margin-bottom:16px;"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:#F9F3EE;border-radius:6px;height:52px;display:flex;align-items:center;justify-content:center;"><div style="width:20px;height:20px;border-radius:50%;background:#D4A574;"></div></div>
+                <div style="background:#F9F3EE;border-radius:6px;height:52px;display:flex;align-items:center;justify-content:center;"><div style="width:20px;height:20px;border-radius:50%;background:#C49060;"></div></div>
+              </div>
+              <div style="margin-top:10px;width:55%;height:24px;border-radius:3px;background:#2D2D2D;"></div>
+            </div>
+          </div>
+          <div class="portfolio-overlay"></div>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-tag">E-commerce</span>
+            <div class="portfolio-title">Petal &amp; Bloom Boutique</div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-2" style="background:#0E1F1A;">
+          <div class="portfolio-card-bg">
+            <div style="width:82%;background:#152820;border-radius:8px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+                <div style="width:28px;height:28px;border-radius:6px;background:#2A5C45;"></div>
+                <div style="font-size:12px;font-weight:700;color:#4CAF72;letter-spacing:0.08em;">SPROUT</div>
+              </div>
+              <div style="font-size:14px;font-weight:700;color:white;margin-bottom:6px;line-height:1.3;">Where ideas<br>take root.</div>
+              <div style="width:50%;height:3px;border-radius:2px;background:rgba(255,255,255,0.1);margin-bottom:12px;"></div>
+              <div style="width:64px;height:24px;border-radius:4px;background:#4CAF72;"></div>
+            </div>
+          </div>
+          <div class="portfolio-overlay"></div>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-tag">Startup</span>
+            <div class="portfolio-title">Sprout — Seed Funding Platform</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;max-width:560px;margin:0 auto 64px;">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Simple, honest <em>pricing</em></h2>
+        <p class="section-desc" style="margin:16px auto 0;">No hidden fees. No surprises. Pick the plan that fits, or let's chat about something custom.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">$600</div>
+          <div class="pricing-period">one-time project</div>
+          <div class="pricing-desc">Perfect for getting your first professional website up and running fast.</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Up to 5 pages</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Mobile responsive design</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Contact form</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> SEO basics</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> 2 rounds of revisions</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> 14-day delivery</li>
+          </ul>
+          <button class="pricing-btn">Get started</button>
+        </div>
+        <div class="pricing-card featured reveal reveal-delay-1">
+          <div class="pricing-badge">Most popular</div>
+          <div class="pricing-name">Growth</div>
+          <div class="pricing-price">$1,500</div>
+          <div class="pricing-period">one-time project</div>
+          <div class="pricing-desc">For businesses ready to make a real impression and start generating leads.</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Up to 10 pages</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Custom illustrations</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Blog or portfolio</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Advanced SEO setup</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Analytics integration</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> 4 rounds of revisions</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> 21-day delivery</li>
+          </ul>
+          <button class="pricing-btn">Get started</button>
+        </div>
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-name">Custom</div>
+          <div class="pricing-price">Let's talk</div>
+          <div class="pricing-period">tailored quote</div>
+          <div class="pricing-desc">Complex projects, e-commerce, or ongoing partnerships — let's figure out what you need.</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Unlimited pages</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> E-commerce / booking</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Custom integrations</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Brand identity package</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Priority support</li>
+            <li class="pricing-feature"><span class="pricing-feature-check">✓</span> Ongoing care plan</li>
+          </ul>
+          <button class="pricing-btn">Book a call</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <h2 class="contact-info-title">Got a project <em>in mind?</em></h2>
+          <p class="contact-info-desc">Tell us a bit about what you're building. We'll get back to you within one business day to figure out if we're a good fit.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4.5L14 4M2 4h12v8a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="59313c353536192a343835353f36212a2d2c3d3036773a3634">[email&#160;protected]</a></div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 4v4l3 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Response time</div>
+                <div class="contact-detail-value">Within 1 business day</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2C5.24 2 3 4.24 3 7c0 4.5 5 8 5 8s5-3.5 5-8c0-2.76-2.24-5-5-5z" stroke="currentColor" stroke-width="1.3"></path><circle cx="8" cy="7" r="1.5" stroke="currentColor" stroke-width="1.2"></circle></svg>
+              </div>
+              <div>
+                <div class="contact-detail-label">Location</div>
+                <div class="contact-detail-value">Remote · Worldwide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="contact-form-root" class="reveal reveal-delay-1"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#hero" class="footer-logo">
+          <img src="Images/Logo/Black_SmallFoxStudioLogo+Text.svg" alt="Small Fox Studio" class="footer-logo-img">
+          <span class="footer-copy">© 2026</span>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div id="tweaks-root"></div>
+
+  <!-- THREE.JS FOX ANIMATION -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script type="module">
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+  // ── RENDERER + SCENE + CAMERA ──
+  const canvas = document.getElementById('fox-canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.set(0, 0, 5.5);
+
+  // ── LIGHTS ──
+  scene.add(new THREE.AmbientLight(0xFFE8D0, 0.55));
+
+  const keyLight = new THREE.DirectionalLight(0xFFD4A0, 1.3);
+  keyLight.position.set(-3, 4, 3);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0xFFFFFF, 0.25);
+  fillLight.position.set(3, 1, 2);
+  scene.add(fillLight);
+
+  const accentLight = new THREE.PointLight(0xE85D26, 0.7, 10);
+  accentLight.position.set(0, 0.5, 2);
+  scene.add(accentLight);
+
+  // ── FOX GROUP ──
+  const foxGroup = new THREE.Group();
+  foxGroup.position.set(0, 0, 0);
+  scene.add(foxGroup);
+
+  // ── LOAD GLB MODEL ──
+  let mixer = null;
+
+  const loader = new GLTFLoader();
+  loader.load(
+    'Models/fox.glb',
+    (gltf) => {
+      const model = gltf.scene;
+      foxGroup.add(model);
+      model.scale.setScalar(4);
+      model.position.set(0, 0, 0);
+      if (gltf.animations && gltf.animations.length > 0) {
+        mixer = new THREE.AnimationMixer(model);
+        gltf.animations.forEach(clip => mixer.clipAction(clip).play());
+      }
+    },
+    undefined,
+    (err) => console.error('GLB load error:', err)
+  );
+
+  // ── FLOATING TRIANGLE FRAGMENTS ──
+  const triGeo = new THREE.TetrahedronGeometry(0.038);
+  const triMeshes = [];
+  for (let i = 0; i < 45; i++) {
+    const triMat = new THREE.MeshBasicMaterial({
+      color: Math.random() > 0.5 ? 0xF2A261 : 0xE85D26,
+      transparent: true,
+      opacity: 0.22 + Math.random() * 0.28,
+    });
+    const tri = new THREE.Mesh(triGeo, triMat);
+    const theta = Math.random() * Math.PI * 2;
+    const phi   = Math.acos(2 * Math.random() - 1);
+    const r     = 2.0 + Math.random() * 3.0;
+    tri.position.set(
+      r * Math.sin(phi) * Math.cos(theta),
+      r * Math.sin(phi) * Math.sin(theta),
+      r * Math.cos(phi)
+    );
+    tri.rotation.set(
+      Math.random() * Math.PI * 2,
+      Math.random() * Math.PI * 2,
+      Math.random() * Math.PI * 2
+    );
+    tri.userData.driftY   = 0.003 + Math.random() * 0.004;
+    tri.userData.rotSpeed = (Math.random() - 0.5) * 0.04;
+    tri.userData.rotAxis  = new THREE.Vector3(Math.random(), Math.random(), Math.random()).normalize();
+    tri.userData.wrapY    = tri.position.y;
+    tri.userData.range    = 4.0;
+    scene.add(tri);
+    triMeshes.push(tri);
+  }
+
+  // ── POLYGON RINGS ──
+  function makePolyRing(r, segments, rotX, rotZ, hex, opacity) {
+    const m = new THREE.Mesh(
+      new THREE.TorusGeometry(r, 0.005, 3, segments),
+      new THREE.MeshBasicMaterial({ color: hex, transparent: true, opacity })
+    );
+    m.rotation.x = rotX;
+    m.rotation.z = rotZ;
+    scene.add(m);
+    return m;
+  }
+  const ring1 = makePolyRing(2.9, 7, 0.5,  0.2, 0xE85D26, 0.14);
+  const ring2 = makePolyRing(2.2, 5, 1.1,  0.8, 0xF2A261, 0.09);
+  const ring3 = makePolyRing(3.7, 9, 0.3,  1.4, 0xE85D26, 0.06);
+
+  // ── MOUSE ──
+  let mx = 0, my = 0;
+  window.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth  - 0.5) * 2;
+    my = -(e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  // ── ANIMATE ──
+  function animate() {
+    requestAnimationFrame(animate);
+    const dt = 0.016;
+
+    // Play baked animations from the GLB
+    if (mixer) mixer.update(dt);
+
+    // Fox faces cursor (smooth)
+    foxGroup.rotation.y += ((mx * 0.18) - foxGroup.rotation.y) * 0.06;
+    foxGroup.rotation.x += ((my * 0.06) - foxGroup.rotation.x) * 0.06;
+
+    // Drift triangles
+    triMeshes.forEach(tri => {
+      tri.position.y += tri.userData.driftY;
+      tri.rotateOnAxis(tri.userData.rotAxis, tri.userData.rotSpeed);
+      if (tri.position.y > tri.userData.wrapY + tri.userData.range) {
+        tri.position.y = tri.userData.wrapY - tri.userData.range;
+      }
+    });
+
+    // Spin polygon rings
+    ring1.rotation.z += 0.003;
+    ring2.rotation.x += 0.002;
+    ring3.rotation.y += 0.001;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+  </script>
+
+  <!-- REACT: CONTACT FORM + TWEAKS -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    function ContactForm() {
+      const [form, setForm] = useState({ name:'', email:'', business:'', projectType:'', message:'' });
+      const [submitted, setSubmitted] = useState(false);
+      const [loading, setLoading] = useState(false);
+
+      const handleChange = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }));
+      const handleSubmit = e => {
+        e.preventDefault(); setLoading(true);
+        setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+      };
+
+      if (submitted) return (
+        <div style={{ padding:'48px 40px', background:'var(--card-bg)', borderRadius:'var(--radius-lg)', textAlign:'center' }}>
+          <div style={{ width:56, height:56, borderRadius:'50%', background:'var(--accent)', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 20px' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </div>
+          <div style={{ fontFamily:'var(--font-display)', fontSize:24, fontWeight:400, marginBottom:10 }}>Message sent!</div>
+          <div style={{ fontSize:15, color:'var(--ink-mid)', fontWeight:300 }}>We'll be in touch within one business day.</div>
+        </div>
+      );
+
+      return (
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-field">
+              <label className="form-label">Your name</label>
+              <input className="form-input" name="name" value={form.name} onChange={handleChange} placeholder="Jane Smith" required />
+            </div>
+            <div className="form-field">
+              <label className="form-label">Email</label>
+              <input className="form-input" name="email" type="email" value={form.email} onChange={handleChange} placeholder="jane@company.com" required />
+            </div>
+          </div>
+          <div className="form-field">
+            <label className="form-label">Business name</label>
+            <input className="form-input" name="business" value={form.business} onChange={handleChange} placeholder="Acme Co." />
+          </div>
+          <div className="form-field">
+            <label className="form-label">Project type</label>
+            <select className="form-select form-input" name="projectType" value={form.projectType} onChange={handleChange}>
+              <option value="">Select a service…</option>
+              <option value="website">New website</option>
+              <option value="landing">Landing page</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="redesign">Redesign</option>
+              <option value="brand">Brand + website</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div className="form-field">
+            <label className="form-label">Tell us about your project</label>
+            <textarea className="form-textarea" name="message" value={form.message} onChange={handleChange} placeholder="What do you need, what's your timeline, anything else we should know…" required></textarea>
+          </div>
+          <button className="form-submit" type="submit" disabled={loading}>
+            {loading ? 'Sending…' : <><span>Send message</span> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></>}
+          </button>
+        </form>
+      );
+    }
+
+    // ── Tweaks ──
+
+    function useTweaks(defaults) {
+      const [values, setValues] = useState(defaults);
+      const setTweak = useCallback((key, val) => {
+        const edits = typeof key === 'object' ? key : { [key]: val };
+        setValues(p => ({ ...p, ...edits }));
+        window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+      }, []);
+      return { tweaks: values, setTweak };
+    }
+
+    function TweaksPanel({ children }) {
+      const [open, setOpen] = useState(false);
+      useEffect(() => {
+        const h = e => {
+          if (e?.data?.type === '__activate_edit_mode') setOpen(true);
+          else if (e?.data?.type === '__deactivate_edit_mode') setOpen(false);
+        };
+        window.addEventListener('message', h);
+        window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+        return () => window.removeEventListener('message', h);
+      }, []);
+      const close = () => { setOpen(false); window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); };
+      if (!open) return null;
+      return (
+        <div className="twk-panel">
+          <div className="twk-hd"><b>Tweaks</b><button className="twk-x" onClick={close}>✕</button></div>
+          <div className="twk-body">{children}</div>
+        </div>
+      );
+    }
+
+    function TweaksApp() {
+      const DEFAULTS = /*EDITMODE-BEGIN*/{"accentColor":"#E85D26","fontPairing":"classic","showPricing":true,"pricingStarter":600,"pricingGrowth":1500}/*EDITMODE-END*/;
+      const { tweaks, setTweak } = useTweaks(DEFAULTS);
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--accent', tweaks.accentColor);
+      }, [tweaks.accentColor]);
+
+      useEffect(() => {
+        const pairs = {
+          classic:   { d:"'Playfair Display',Georgia,serif",    b:"'DM Sans',system-ui,sans-serif" },
+          editorial: { d:"'Libre Baskerville',Georgia,serif",   b:"'Source Sans 3',system-ui,sans-serif" },
+          modern:    { d:"'Cormorant Garamond',Georgia,serif",  b:"'Outfit',system-ui,sans-serif" },
+        };
+        const p = pairs[tweaks.fontPairing] || pairs.classic;
+        document.documentElement.style.setProperty('--font-display', p.d);
+        document.documentElement.style.setProperty('--font-body', p.b);
+      }, [tweaks.fontPairing]);
+
+      useEffect(() => {
+        const el = document.getElementById('pricing');
+        if (el) el.style.display = tweaks.showPricing ? '' : 'none';
+      }, [tweaks.showPricing]);
+
+      useEffect(() => {
+        const prices = document.querySelectorAll('.pricing-price');
+        if (prices[0]) prices[0].textContent = '$' + Number(tweaks.pricingStarter).toLocaleString();
+        if (prices[1]) prices[1].textContent = '$' + Number(tweaks.pricingGrowth).toLocaleString();
+      }, [tweaks.pricingStarter, tweaks.pricingGrowth]);
+
+      return (
+        <TweaksPanel>
+          <div className="twk-sect">Brand</div>
+          <div className="twk-row">
+            <span className="twk-lbl">Accent colour</span>
+            <input type="color" className="twk-swatch" value={tweaks.accentColor} onChange={e => setTweak('accentColor', e.target.value)} />
+          </div>
+          <div className="twk-row">
+            <span className="twk-lbl">Font pairing</span>
+            <select className="twk-select" value={tweaks.fontPairing} onChange={e => setTweak('fontPairing', e.target.value)}>
+              <option value="classic">Classic — Playfair + DM Sans</option>
+              <option value="editorial">Editorial — Baskerville + Source Sans</option>
+              <option value="modern">Modern — Cormorant + Outfit</option>
+            </select>
+          </div>
+          <div className="twk-sect">Pricing</div>
+          <div className="twk-row">
+            <span className="twk-lbl">Show pricing</span>
+            <button type="button" className="twk-toggle" data-on={tweaks.showPricing ? '1' : '0'} onClick={() => setTweak('showPricing', !tweaks.showPricing)}><i /></button>
+          </div>
+        </TweaksPanel>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('contact-form-root')).render(<ContactForm />);
+    ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+  </script>
+
+  <!-- NAV SCROLL + REVEAL -->
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
