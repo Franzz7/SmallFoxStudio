@@ -283,6 +283,22 @@
             <div class="portfolio-title">Sprout — Seed Funding Platform</div>
           </div>
         </div>
+        <a href="https://deepchill.co.uk" target="_blank" rel="noopener noreferrer" class="portfolio-card reveal" style="background:#071320;text-decoration:none;">
+          <div style="position:absolute;inset:0;overflow:hidden;">
+            <div id="dc-scaler" style="transform-origin:top left;line-height:0;">
+              <iframe
+                src="https://deepchill.co.uk"
+                style="width:1440px;height:960px;border:none;display:block;cursor:default;"
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+          <div class="portfolio-overlay" style="pointer-events:none;"></div>
+          <div class="portfolio-card-meta" style="pointer-events:none;">
+            <span class="portfolio-tag">Website</span>
+            <div class="portfolio-title">DeepChill.co.uk</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -741,6 +757,24 @@
 
     ReactDOM.createRoot(document.getElementById('contact-form-root')).render(<ContactForm />);
     ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+  </script>
+
+  <!-- DEEPCHILL LIVE PREVIEW -->
+  <script>
+    (function () {
+      var scaler = document.getElementById('dc-scaler');
+      if (!scaler) return;
+      var card = scaler.closest('.portfolio-card');
+
+      function apply() {
+        var w = card.offsetWidth;
+        if (!w) { requestAnimationFrame(apply); return; }
+        scaler.style.transform = 'scale(' + (w / 1440) + ')';
+      }
+
+      window.addEventListener('load', apply);
+      window.addEventListener('resize', apply);
+    })();
   </script>
 
   <!-- NAV SCROLL + REVEAL -->
