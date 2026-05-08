@@ -484,7 +484,51 @@
       model.position.set(0, -1.2, 0);
       if (gltf.animations && gltf.animations.length > 0) {
         mixer = new THREE.AnimationMixer(model);
-        gltf.animations.forEach(clip => mixer.clipAction(clip).play());
+
+        const clip1 = gltf.animations.find(c => c.name === 'idle fox animation 1');
+        const clip2 = gltf.animations.find(c => c.name === 'idle fox animation 2');
+
+        if (clip1 && clip2) {
+          const action1 = mixer.clipAction(clip1);
+          const action2 = mixer.clipAction(clip2);
+
+          action1.setLoop(THREE.LoopOnce, 1);
+          action1.clampWhenFinished = false;
+          action2.setLoop(THREE.LoopRepeat, Infinity);
+          action2.play();
+
+          let pendingSwitch = false;
+
+          // Wait for animation 2 to finish its current cycle, then switch cleanly
+          mixer.addEventListener('loop', (e) => {
+            if (e.action === action2 && pendingSwitch) {
+              pendingSwitch = false;
+              action2.stop();
+              action1.reset();
+              action1.play();
+            }
+          });
+
+          // When animation 1 finishes fully, return to animation 2
+          mixer.addEventListener('finished', (e) => {
+            if (e.action === action1) {
+              action1.stop();
+              action2.reset();
+              action2.play();
+              scheduleOccasional();
+            }
+          });
+
+          function scheduleOccasional() {
+            setTimeout(() => { pendingSwitch = true; }, 8000 + Math.random() * 12000);
+          }
+
+          scheduleOccasional();
+
+        } else {
+          console.warn('Animation names not matched. Found:', gltf.animations.map(c => c.name));
+          gltf.animations.forEach(clip => mixer.clipAction(clip).play());
+        }
       }
     },
     undefined,
