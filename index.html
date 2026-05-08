@@ -485,8 +485,11 @@
       if (gltf.animations && gltf.animations.length > 0) {
         mixer = new THREE.AnimationMixer(model);
 
+        console.log('All animations in GLB:', gltf.animations.map(c => c.name));
         const clip1 = gltf.animations.find(c => c.name === 'baked_idle_2');
         const clip2 = gltf.animations.find(c => c.name === 'baked_idle_1');
+        console.log('Occasional (plays once):', clip1?.name);
+        console.log('Loop (plays constantly):', clip2?.name);
 
         if (clip1 && clip2) {
           const action1 = mixer.clipAction(clip1);
