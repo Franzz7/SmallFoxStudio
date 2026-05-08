@@ -485,8 +485,8 @@
       if (gltf.animations && gltf.animations.length > 0) {
         mixer = new THREE.AnimationMixer(model);
 
-        const clip1 = gltf.animations.find(c => c.name === 'baked_idle_1');
-        const clip2 = gltf.animations.find(c => c.name === 'baked_idle_2');
+        const clip1 = gltf.animations.find(c => c.name === 'baked_idle_2');
+        const clip2 = gltf.animations.find(c => c.name === 'baked_idle_1');
 
         if (clip1 && clip2) {
           const action1 = mixer.clipAction(clip1);
