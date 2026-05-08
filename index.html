@@ -480,12 +480,12 @@
     (gltf) => {
       const model = gltf.scene;
       foxGroup.add(model);
-      model.scale.setScalar(0.672);
-      model.position.set(0, -1.2, 0);
+      model.scale.setScalar(1.8);
+      model.position.set(0, -1.8, 0);
       if (gltf.animations && gltf.animations.length > 0) {
         mixer = new THREE.AnimationMixer(model);
 
-        const clip1 = gltf.animations.find(c => c.name === 'idle fox animation 1');
+        const clip1 = gltf.animations.find(c => c.name === 'fox idle');
         const clip2 = gltf.animations.find(c => c.name === 'idle fox animation 2');
 
         if (clip1 && clip2) {
@@ -618,9 +618,11 @@
   });
 
   // ── ANIMATE ──
+  const clock = new THREE.Clock();
+
   function animate() {
     requestAnimationFrame(animate);
-    const dt = 0.016;
+    const dt = clock.getDelta();
 
     // Play baked animations from the GLB
     if (mixer) mixer.update(dt);
